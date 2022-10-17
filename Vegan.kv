@@ -14,15 +14,6 @@
                     pos: self.pos
                     size: self.size
 
-#    Label:
-#        canvas.before:
-#            Color:
-#                rgba: 0 / 255, 0 / 255, 0 / 255, 1
-#            Rectangle:
-#                pos: self.pos
-#                size: self.size
-#        text:'Picture'
-
         Image:
             source: 'V-PIC.jpg'
             size_hint: (1, 0.8)
@@ -30,17 +21,21 @@
         
         BoxLayout:
             orientation:'horizontal'
+            size_hint: (1, 0.3)
+            Label:
+                font_name: 'NanumBarunGothic.ttf'
+                text:
+                    '<< 화면을 옆으로 넘겨보세요'
+
+        BoxLayout:
+            orientation:'horizontal'
             padding: [30, 20]
             size_hint: (1, 0.2)
 
             Button:
                 text: 'Help'
-                size_hint:(0.3, 1)
+                size_hint:(0.2, 1)
                 on_press: Factory.HelpPop().open()
-            Button:
-                text: 'Made'
-                size_hint:(0.3, 1)
-                on_press: Factory.MadePop().open() 
         
     BoxLayout: #두번째 페이지
         orientation: 'vertical'
