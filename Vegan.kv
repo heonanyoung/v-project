@@ -1,5 +1,30 @@
 #: import Factory kivy.factory.Factory
 
+<CameraClick>:
+# BoxLayout:
+#     orientation: 'vertical'
+#     # Upper_bar:
+#     #         size_hint: (1, 0.1)
+#     #         canvas.before:
+#     #             Color:
+#     #                 rgba: 98 / 255, 255 / 255, 114 / 255, 1
+
+#     #             Rectangle:
+#     #                 pos: self.pos
+#     #                 size: self.size
+
+    BoxLayout:
+        orientation: 'vertical'
+        Camera:
+            id: camera
+            resolution: (640, 480)
+            play: True
+        Button:
+            text: 'Capture'
+            size_hint_y: None
+            height: '48dp'
+            on_press: root.capture()
+#------------------------------------------------
 <PageLayout>:
     BoxLayout: #첫번째 페이지
         orientation:'vertical'
@@ -15,17 +40,9 @@
                     size: self.size
 
         Image:
-            source: 'V-PIC.jpg'
+            source: 'veganfood.png'
             size_hint: (1, 0.8)
             #size: self.texture_size
-        
-        BoxLayout:
-            orientation:'horizontal'
-            size_hint: (1, 0.3)
-            Label:
-                font_name: 'NanumBarunGothic.ttf'
-                text:
-                    '<< 화면을 옆으로 넘겨보세요'
 
         BoxLayout:
             orientation:'horizontal'
@@ -33,50 +50,18 @@
             size_hint: (1, 0.2)
 
             Button:
+                font_name: 'NanumBarunGothic.ttf'
+                text: '촬영'
+                size_hint_y: None
+                height: '48dp'
+                on_press: root.manager.current = 'camera'
+
+            Button:
                 text: 'Help'
                 size_hint:(0.2, 1)
                 on_press: Factory.HelpPop().open()
-        
-    BoxLayout: #두번째 페이지
-        orientation: 'vertical'
 
-        canvas:
-            Color: 
-                rgba: 0, 0, 0, 1
-            Rectangle:
-                pos: self.pos
-                size: self.size
-
-        Upper_bar:
-            size_hint: (1, 0.1)
-            canvas.before:
-                Color:
-                    rgba: 98 / 255, 255 / 255, 114 / 255, 1
-
-                Rectangle:
-                    pos: self.pos
-                    size: self.size
-        
-        BoxLayout:
-            size_hint: (1, 0.8)
-            Label:
-                text: 'Vegan'
-                color : 1, 1, 0, 1
-                
-        BoxLayout:
-            orientation: 'horizontal'
-            padding: [50, 20]
-            size_hint: (1, 0.2)
             
-            Button:
-                size_hint: (0.3, 1)
-                text:'reset'
-
-
-            Button:
-                size_hint: (0.3, 1)
-                text: 'search'
-        
 #-------------------------------------------------------
 <Upper_bar>:
     BoxLayout:
