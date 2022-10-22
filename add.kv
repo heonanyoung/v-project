@@ -1,0 +1,28 @@
+BoxLayout: #세번째 페이지
+        orientation: 'vertical'
+        canvas:
+            Color: 
+                rgba: 0, 0, 0, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Upper_bar:
+            size_hint: (1, 0.1)
+            canvas.before:
+                Color:
+                    rgba: 98 / 255, 255 / 255, 114 / 255, 1
+
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+        
+        BoxLayout:
+            orientation: 'horizontal'
+            Image:
+                id: my_image
+                source: ""
+
+            FileChooserIconView:
+                id : filechooser
+                on_selection: my_widget.selected(filechooser.selection)
